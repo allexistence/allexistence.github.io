@@ -78,7 +78,7 @@ theme_mode: #dark
 # Notice that once it is assigned, the CDN url
 # will be added to all media resources (site avatar, posts' images, audio and video files) paths starting with '/'
 #
-# e.g. 'https://cdn.com'
+# e.g. 'https://cdn.com'git commit -m "config: enable dark/light theme toggle"
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
