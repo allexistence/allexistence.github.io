@@ -16,7 +16,7 @@ timezone: Asia/Singapore
 
 title: StackDepth # the main title
 
-tagline: Platform Modernisation  |  Public & Private Cloud  |  Virtualisation & Containerisation  |  Kubernetes  |  Tanzu  |  OpenShift  |  Rancher  |  CI/CD  |  AI Infra # it will display as the subtitle
+tagline: Depth over abstraction
 
 description: >- # used by seo meta and the atom feed
     Deep dives on Harvester HCI, RKE2, GPU infrastructure, Kubernetes networking and cloud-native engineering.
