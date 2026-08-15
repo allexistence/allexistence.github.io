@@ -10,6 +10,21 @@ Built with [Jekyll](https://jekyllrb.com) + [Chirpy](https://github.com/cotes202
 
 Requires [Docker](https://www.docker.com/) — no local Ruby/Jekyll install needed.
 
+The theme's static assets (fonts, JS libs) are self-hosted via a git submodule
+([`assets/lib`](assets/lib)), so clone with `--recurse-submodules`:
+
+```bash
+git clone --recurse-submodules https://github.com/allexistence/allexistence.github.io.git
+```
+
+If you already cloned without it:
+
+```bash
+git submodule update --init
+```
+
+Then:
+
 ```bash
 docker compose up
 ```
@@ -63,3 +78,15 @@ Then write the post in Markdown below the front matter. A few notes:
   on per post.
 - To link out to an externally-hosted post instead of writing one here, see any of the existing
   Medium-redirect posts in `_posts/` for the pattern (a `<script>` redirect plus a fallback link).
+
+### Checking your post is formatted correctly
+
+Before opening a PR, verify your post's filename, folder, and front matter are all correct:
+
+```bash
+docker compose exec site ruby tools/check_post_format.rb
+```
+
+It checks that every post: has a `YYYY-MM-DD-slug.md` filename, lives in a matching `YYYY-MM-DD/`
+folder, has valid YAML front matter, and has a non-empty `title`, `date`, `categories`, and `tags`.
+This also runs automatically as a CI check on every pull request.
