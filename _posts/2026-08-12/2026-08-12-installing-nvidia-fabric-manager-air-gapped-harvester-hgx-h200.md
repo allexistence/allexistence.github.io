@@ -687,20 +687,26 @@ picks the right one automatically once the folder path is correct.
 
 | Value | Meaning |
 |---|---|
-| `0` | Bare metal — FM expects to see the GPUs itself |
-| `1` | Shared NVSwitch — FM configures switches, then **waits for a hypervisor service to call its partition-activation API** |
+| `0` | Bare metal — FM assumes one owner for the whole baseboard |
+| `1` | Shared NVSwitch — FM configures the switches, then **waits for the hypervisor to call its partition-activation API** as VMs come and go |
 
-By the book, this setup looks like mode `1`. But mode `1` requires the virtualisation platform to
-actively call Fabric Manager's partition API — and KubeVirt-based platforms have no such feature.
-That would have been a wall with no way around it.
+By the book, this setup is mode `1`: GPUs split across separate VMs is exactly what Shared NVSwitch
+is for. The problem is that mode `1` only completes if the virtualisation platform actively calls
+Fabric Manager's partition API — and KubeVirt has no such integration. Mode `1` would have been a
+wall with nothing on the other side.
 
-**Mode `0` worked anyway**, even with the GPUs vfio-bound and invisible to the host driver. The
+**Mode `0` worked anyway**, even with every GPU vfio-bound and invisible to the host driver. The
 switches initialise, and each GPU registers with the fabric when its driver starts inside its guest.
 
-> ⚠️ Worth testing before trusting this generally: mode `1` exists to *enforce isolation* between
-> tenants. Mode `0` may be leaving the fabric open rather than partitioned. Fine for a single tenant;
-> check `nvidia-smi topo -m` and a peer-to-peer bandwidth test before relying on it for multi-tenant
-> work.
+> ⚠️ **What I tested, and what I didn't.**
+> Mode `0` brought the fabric up and CUDA returned `True` — that part is reproducible.
+> What I have *not* verified is isolation. Mode `1` exists specifically to partition the fabric
+> between tenants; mode `0` makes no such claim, and may well leave NVLink routing open across all
+> eight GPUs regardless of which VM holds them.
+>
+> For a single-tenant box this probably doesn't matter. For separately-owned workloads sharing one
+> baseboard, check `nvidia-smi topo -m` and run a peer-to-peer bandwidth test **between GPUs in
+> different VMs** before trusting it. If you've done that test, I'd like to hear the result.
 
 ---
 
