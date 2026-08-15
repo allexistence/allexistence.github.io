@@ -22,6 +22,9 @@ jobs:
           ruby-version: 3.3
           bundler-cache: true
 
+      - name: Check post format
+        run: ruby tools/check_post_format.rb
+
       - name: Build site
         run: bundle exec jekyll b -d "_site"
         env:
