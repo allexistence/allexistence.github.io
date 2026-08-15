@@ -10,6 +10,21 @@ Built with [Jekyll](https://jekyllrb.com) + [Chirpy](https://github.com/cotes202
 
 Requires [Docker](https://www.docker.com/) — no local Ruby/Jekyll install needed.
 
+The theme's static assets (fonts, JS libs) are self-hosted via a git submodule
+([`assets/lib`](assets/lib)), so clone with `--recurse-submodules`:
+
+```bash
+git clone --recurse-submodules https://github.com/allexistence/allexistence.github.io.git
+```
+
+If you already cloned without it:
+
+```bash
+git submodule update --init
+```
+
+Then:
+
 ```bash
 docker compose up
 ```
