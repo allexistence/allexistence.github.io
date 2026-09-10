@@ -1,7 +1,7 @@
 ---
 title: "Running Meta's Muse Glimmer 30B on a 24 GB MacBook Air M4"
 date: 2026-09-10 10:00:00 +0800
-categories: [AI/ML, Local Inference]
+categories: [AI/ML]
 tags: [muse-glimmer, llama.cpp, apple-silicon, benchmarking, m4]
 ---
 
@@ -12,8 +12,7 @@ on my own machine — a MacBook Air M4 with 24 GB of unified memory. No cloud
 GPU, no rented compute, just the laptop I already have.
 
 This is a first attempt at local LLM benchmarking for me, so I kept the
-scope small: get it loaded, and measure three things well rather than
-measure ten things poorly.
+scope small: get it loaded, and measure three things well.
 
 ![Terminal showing the model load and server startup](/assets/img/posts/muse-glimmer-m4-air/01-server-startup.png)
 _llama-server loading the model and coming up on port 8080, n_ctx_slot = 8192_
@@ -218,5 +217,4 @@ n_tokens =   5495, t = 115.45 s / 47.60 tokens per second
   see it; four runs may just not be enough to trigger it.
 
 This was a first pass at benchmarking a local model, and I'm sure there's
-room to tighten the methodology. Vision projector and speculative decoding
-tests are next.
+room to tighten the methodology.
