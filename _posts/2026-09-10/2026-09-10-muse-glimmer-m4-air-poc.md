@@ -1,6 +1,6 @@
 ---
 title: "Running Meta's Muse Glimmer 30B on a 24 GB MacBook Air M4"
-date: 2026-09-10 18:00:00 +0800
+date: 2026-09-10 10:00:00 +0800
 categories: [AI/ML, Local Inference]
 tags: [muse-glimmer, llama.cpp, apple-silicon, benchmarking, m4]
 ---
