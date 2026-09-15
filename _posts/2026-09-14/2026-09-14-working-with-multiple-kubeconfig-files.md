@@ -1,7 +1,7 @@
 ---
 title: "Working with Multiple Kubeconfig Files"
 date: 2026-09-14 09:00:00 +0800
-categories: [DevOps, Kubernetes]
+categories: [Kubernetes]
 tags: [kubernetes, kubectl, kubeconfig, multi-cluster]
 ---
 
