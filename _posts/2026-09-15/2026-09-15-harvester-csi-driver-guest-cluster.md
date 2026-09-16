@@ -1,7 +1,7 @@
 ---
 title: "Installing the Harvester CSI Driver in a Guest Cluster"
 date: 2026-09-15 09:00:00 +0800
-categories: [Kubernetes, CSI Driver]
+categories: [Kubernetes]
 tags: [harvester, csi, kubernetes, storage, longhorn, kubevirt, rke2]
 ---
 
