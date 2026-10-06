@@ -166,15 +166,15 @@ $vanilla-dark: #ede2cf;
   }
 }
 
-:root[data-mode='light'] {
+:root[data-bs-theme='light'] {
   @include berry-vanilla-light;
 }
 
-:root[data-mode='dark'] {
+:root[data-bs-theme='dark'] {
   @include berry-vanilla-dark;
 }
 
-:root:not([data-mode]) {
+:root:not([data-bs-theme]) {
   @media (prefers-color-scheme: light) {
     @include berry-vanilla-light;
   }
@@ -182,4 +182,17 @@ $vanilla-dark: #ede2cf;
   @media (prefers-color-scheme: dark) {
     @include berry-vanilla-dark;
   }
+}
+
+/* Bootstrap primary buttons (e.g. "See more posts") */
+.btn-outline-primary {
+  --bs-btn-color: var(--link-color);
+  --bs-btn-border-color: var(--link-color);
+  --bs-btn-hover-color: var(--main-bg);
+  --bs-btn-hover-bg: var(--link-color);
+  --bs-btn-hover-border-color: var(--link-color);
+  --bs-btn-active-color: var(--main-bg);
+  --bs-btn-active-bg: var(--link-color);
+  --bs-btn-active-border-color: var(--link-color);
+  --bs-btn-focus-shadow-rgb: 107, 30, 70;
 }
