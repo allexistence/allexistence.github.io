@@ -1,0 +1,185 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* ------------------------------------------------------------------
+ * Deep Berry + Vanilla Cloud palette
+ * Overrides Chirpy's color variables for both light and dark modes.
+ * ------------------------------------------------------------------ */
+
+$berry: #6b1e46;
+$berry-deep: #4a1230;
+$berry-soft: #9c4a74;
+$berry-light: #e3a6c4;
+$vanilla: #f7f0e3;
+$vanilla-light: #fbf7ef;
+$vanilla-dark: #ede2cf;
+
+@mixin berry-vanilla-light {
+  /* Framework */
+  --main-bg: #{$vanilla-light};
+  --main-border-color: #{$vanilla-dark};
+
+  /* Text */
+  --text-color: #3a2630;
+  --text-muted-color: #7a6470;
+  --heading-color: #{$berry-deep};
+  --label-color: #6a4a5a;
+  --blockquote-border-color: #{$berry-light};
+  --blockquote-text-color: #7a6470;
+  --link-color: #{$berry};
+  --link-underline-color: #{$berry-light};
+  --button-bg: #{$vanilla-light};
+  --btn-border-color: #{$vanilla-dark};
+  --checkbox-checked-color: #{$berry};
+  --menu-bg: #{$vanilla-light};
+  --menu-highlight-bg: rgb(107 30 70 / 8%);
+
+  /* Sidebar: deep berry panel with vanilla text */
+  --sidebar-bg: #{$berry};
+  --sidebar-border-color: #{$berry-deep};
+  --site-title-color: #{$vanilla};
+  --site-subtitle-color: rgb(247 240 227 / 75%);
+  --sidebar-muted-color: rgb(247 240 227 / 78%);
+  --sidebar-active-color: #ffffff;
+  --sidebar-hover-bg: rgb(247 240 227 / 12%);
+  --sidebar-btn-bg: rgb(247 240 227 / 10%);
+  --sidebar-btn-color: #{$vanilla};
+  --avatar-border-color: #{$vanilla};
+
+  /* Topbar */
+  --topbar-bg: rgb(251 247 239 / 82%);
+  --topbar-text-color: #{$berry-deep};
+  --search-border-color: #{$vanilla-dark};
+  --search-icon-color: #{$berry-soft};
+  --input-focus-border-color: #{$berry-soft};
+
+  /* Home / posts */
+  --post-list-text-color: #6a5560;
+  --btn-paginator-hover-color: #{$vanilla};
+  --toc-highlight: #{$berry};
+  --btn-share-hover-color: #{$berry};
+  --card-bg: #fffdf8;
+  --card-hover-bg: #{$vanilla};
+  --card-shadow:
+    rgb(74 18 48 / 6%) 0 2px 6px 0, rgb(237 226 207 / 70%) 0 0 0 1px;
+  --footnote-target-bg: #f6e4ec;
+  --tb-odd-bg: #f9f3e8;
+  --tb-border-color: #{$vanilla-dark};
+
+  /* Tags, categories, archive */
+  --tag-border: #{$vanilla-dark};
+  --tag-hover: #f0dde6;
+  --search-tag-bg: #{$vanilla};
+  --categories-hover-bg: #{$vanilla};
+  --categories-icon-hover-color: #{$berry};
+  --timeline-node-bg: #{$berry-soft};
+  --timeline-year-dot-color: #{$vanilla-light};
+
+  /* Code */
+  --highlight-bg-color: #f4ecdd;
+  --language-border-color: #{$vanilla-dark};
+  --inline-code-bg: rgb(107 30 70 / 7%);
+  --highlighter-rouge-color: #{$berry};
+
+  .highlight,
+  .highlight .w {
+    background-color: #f4ecdd;
+  }
+}
+
+@mixin berry-vanilla-dark {
+  /* Framework */
+  --main-bg: #1c1016;
+  --mask-bg: #3a2430;
+  --main-border-color: #33202a;
+
+  /* Text */
+  --text-color: #e2d6c4;
+  --text-muted-color: #a8949e;
+  --heading-color: #{$vanilla};
+  --label-color: #c9b6bf;
+  --blockquote-border-color: #{$berry-soft};
+  --blockquote-text-color: #a8949e;
+  --link-color: #{$berry-light};
+  --link-underline-color: #7a3a5c;
+  --button-bg: #24141d;
+  --btn-border-color: #3a2430;
+  --checkbox-checked-color: #{$berry-light};
+  --menu-bg: #24141d;
+
+  /* Sidebar */
+  --sidebar-bg: #2a1420;
+  --sidebar-border-color: #3a1d2d;
+  --site-title-color: #{$vanilla};
+  --site-subtitle-color: rgb(247 240 227 / 65%);
+  --sidebar-muted-color: rgb(247 240 227 / 65%);
+  --sidebar-active-color: #{$vanilla};
+  --sidebar-hover-bg: rgb(227 166 196 / 10%);
+  --sidebar-btn-bg: #33192a;
+  --sidebar-btn-color: #{$berry-light};
+  --avatar-border-color: #{$berry-soft};
+
+  /* Topbar */
+  --topbar-bg: rgb(28 16 22 / 78%);
+  --topbar-text-color: #{$vanilla-dark};
+  --search-border-color: #3a2430;
+  --search-icon-color: #{$berry-soft};
+  --input-focus-border-color: #{$berry-soft};
+
+  /* Home / posts */
+  --btn-paginator-hover-color: #2a1420;
+  --toc-highlight: #{$berry-light};
+  --btn-share-hover-color: #{$berry-light};
+  --card-bg: #24141d;
+  --card-hover-bg: #2e1925;
+  --card-header-bg: #2a1420;
+  --tb-odd-bg: #22131b;
+  --tb-border-color: #3a2430;
+
+  /* Tags, categories, archive */
+  --tag-border: #3a2430;
+  --tag-hover: #3a2430;
+  --search-tag-bg: #2a1420;
+  --categories-hover-bg: #2a1420;
+  --categories-icon-hover-color: #{$berry-light};
+  --timeline-node-bg: #{$berry-soft};
+
+  /* Code */
+  --highlight-bg-color: #160c12;
+  --inline-code-bg: rgb(227 166 196 / 10%);
+  --highlighter-rouge-color: #{$berry-light};
+
+  .highlight,
+  .highlight .w {
+    background-color: #160c12;
+  }
+}
+
+:root[data-mode='light'] {
+  @include berry-vanilla-light;
+}
+
+:root[data-mode='dark'] {
+  @include berry-vanilla-dark;
+}
+
+:root:not([data-mode]) {
+  @media (prefers-color-scheme: light) {
+    @include berry-vanilla-light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    @include berry-vanilla-dark;
+  }
+}
