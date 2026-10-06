@@ -1,5 +1,5 @@
 ---
-title: "Upgrading an Air-Gapped RKE2 Cluster by Hand (and What `kubectl drain` Really Does)"
+title: "Upgrading RKE2 Without Downtime: A Step-by-Step Guide"
 date: 2026-10-05 09:00:00 +0800
 categories: [Kubernetes, RKE2]
 tags: [rke2, airgap, upgrade, harbor, containerd, drain, sles]
