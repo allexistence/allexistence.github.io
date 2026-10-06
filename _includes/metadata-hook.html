@@ -1,0 +1,9 @@
+<!-- Default first-time visitors to the light (Vanilla Cloud) theme; later choices from the mode toggle, including "System", are respected -->
+<script>
+  try {
+    if (Theme.isToggleable && Theme.isSystemTheme && !localStorage.getItem('theme-default-applied')) {
+      Theme.update(Theme.Mode.LIGHT);
+    }
+    localStorage.setItem('theme-default-applied', '1');
+  } catch (e) {}
+</script>
