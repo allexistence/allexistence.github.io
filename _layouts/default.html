@@ -1,0 +1,92 @@
+---
+layout: compress
+---
+
+<!doctype html>
+
+{% comment %}
+  Override of jekyll-theme-chirpy 7.6 `_layouts/default.html`.
+  - No left sidebar and no right panel: one centred content column.
+  - The top bar lives outside #main-wrapper so it can be wider than the content.
+  - Chirpy's JS needs #sidebar and #mask to exist; they are kept as hidden stubs.
+  - `#main-wrapper > .container > .row` is kept: the search script hides those rows
+    while results are shown.
+{% endcomment %}
+
+{% include origin-type.html %}
+
+{% include lang.html %}
+
+<!-- `site.alt_lang` can specify a language different from the UI -->
+<html
+  lang="{{ page.lang | default: site.alt_lang | default: site.lang }}"
+  {%- if site.theme_mode == 'light' or site.theme_mode == 'dark' -%}
+    data-bs-theme="{{ site.theme_mode }}"
+  {%- endif -%}
+>
+  {% include head.html lang=lang %}
+
+  <body>
+    <!-- Soft colour blobs behind the glass -->
+    <div class="glass-bg" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+      <span class="blob blob-3"></span>
+      <span class="blob blob-4"></span>
+    </div>
+
+    <!-- Stub required by Chirpy's sidebar script (the sidebar itself is removed) -->
+    <aside id="sidebar" class="d-none" aria-hidden="true"></aside>
+
+    {% include topbar.html lang=lang %}
+
+    <div id="main-wrapper" class="d-flex justify-content-center">
+      <div class="container d-flex flex-column">
+        <div class="row flex-grow-1">
+          <main aria-label="Main Content" class="col-12 px-md-3">
+            {% if layout.layout == 'default' %}
+              {% include refactor-content.html content=content lang=lang %}
+            {% else %}
+              {{ content }}
+            {% endif %}
+          </main>
+        </div>
+
+        <div class="row">
+          <!-- tail -->
+          <div id="tail-wrapper" class="col-12 px-md-3">
+            {% for _include in layout.tail_includes %}
+              {% assign _include_path = _include | append: '.html' %}
+              {% include {{ _include_path }} lang=lang %}
+            {% endfor %}
+
+            {% include_cached footer.html lang=lang %}
+          </div>
+        </div>
+
+        {% include_cached search-results.html lang=lang %}
+      </div>
+
+      <aside aria-label="Scroll to Top">
+        <button id="back-to-top" type="button" class="btn btn-lg btn-box-shadow">
+          <i class="fas fa-angle-up"></i>
+        </button>
+      </aside>
+    </div>
+
+    <div id="mask" class="d-none position-fixed w-100 h-100 z-1"></div>
+
+    {% if site.pwa.enabled %}
+      {% include_cached notification.html lang=lang %}
+    {% endif %}
+
+    <!-- Embedded scripts -->
+
+    {% for _include in layout.script_includes %}
+      {% assign _include_path = _include | append: '.html' %}
+      {% include {{ _include_path }} %}
+    {% endfor %}
+
+    {% include_cached search-loader.html lang=lang %}
+  </body>
+</html>
