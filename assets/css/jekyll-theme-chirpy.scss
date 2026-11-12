@@ -929,6 +929,10 @@ main > article:has(.term-window) {
     white-space: nowrap;
   }
 
+  .term-group:not(:last-child) {
+    margin-bottom: 0.45rem;
+  }
+
   .term-prompt {
     color: #e3a6c4;
     font-weight: 600;
