@@ -4,13 +4,26 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-Hi, I'm Rishabh — I write about platform engineering, Kubernetes, and AI/ML infrastructure.
+{% capture prompt %}<span class="term-prompt">rishabh@allexistence:<span class="term-path">~</span><span class="term-sigil">$</span></span>{% endcapture %}
 
-This blog, **StackDepth**, is where I dig into the layers. The name is the philosophy — *depth over abstraction*. Expect hands-on notes from real upgrades, migrations, and outages, not just theory.
-
-You can find me on [GitHub](https://github.com/allexistence) and [LinkedIn](https://www.linkedin.com/in/imrishabh27).
-
-<div style="margin-top: 0.5rem;">
-  <a class="github-button" href="https://github.com/allexistence" data-size="large" data-show-count="true" aria-label="Follow @allexistence on GitHub">Follow @allexistence</a>
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
+<div class="term-window" role="region" aria-label="About me">
+  <div class="term-titlebar" aria-hidden="true">
+    <span class="term-dot red"></span>
+    <span class="term-dot yellow"></span>
+    <span class="term-dot green"></span>
+    <span class="term-title">rishabh@allexistence: ~</span>
+  </div>
+  <div class="term-body">
+    <div class="term-line" style="--i:0">{{ prompt }}<span class="term-cmd">whoami</span></div>
+    <div class="term-out" style="--i:1">Rishabh — Senior Platform Engineer, Singapore</div>
+    <div class="term-line" style="--i:2">{{ prompt }}<span class="term-cmd">cat about.txt</span></div>
+    <div class="term-out" style="--i:3">I write about platform engineering, Kubernetes, and AI/ML infrastructure. This blog is where I dig into the layers — depth over abstraction. Expect hands-on notes from real upgrades, migrations, and outages, not just theory.</div>
+    <div class="term-line" style="--i:4">{{ prompt }}<span class="term-cmd">ls ~/stack</span></div>
+    <div class="term-out" style="--i:5"><span class="term-dir">harvester/</span>&nbsp;&nbsp;<span class="term-dir">rke2/</span>&nbsp;&nbsp;<span class="term-dir">kubevirt/</span>&nbsp;&nbsp;<span class="term-dir">cilium/</span>&nbsp;&nbsp;<span class="term-dir">gpu/</span>&nbsp;&nbsp;<span class="term-dir">ai-inference/</span>&nbsp;&nbsp;<span class="term-dir">vsphere/</span></div>
+    <div class="term-line" style="--i:6">{{ prompt }}<span class="term-cmd">kubectl get engineer rishabh</span></div>
+    <div class="term-out term-nowrap" style="--i:7"><span class="term-head">NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ROLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXPERIENCE&nbsp;&nbsp;&nbsp;STATUS</span><br>rishabh&nbsp;&nbsp;&nbsp;platform-engineer&nbsp;&nbsp;&nbsp;7y+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="term-ok">Running</span></div>
+    <div class="term-line" style="--i:8">{{ prompt }}<span class="term-cmd">./contact --list</span></div>
+    <div class="term-out term-nowrap" style="--i:9">github&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;<a href="https://github.com/allexistence" target="_blank" rel="noopener noreferrer">github.com/allexistence</a><br>linkedin&nbsp;&nbsp;→&nbsp;<a href="https://www.linkedin.com/in/imrishabh27" target="_blank" rel="noopener noreferrer">linkedin.com/in/imrishabh27</a><br>rss&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;<a href="{{ '/feed.xml' | relative_url }}">/feed.xml</a></div>
+    <div class="term-line" style="--i:10">{{ prompt }}<span class="term-cursor" aria-hidden="true"></span></div>
+  </div>
 </div>
